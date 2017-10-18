@@ -27,6 +27,9 @@ public class TicTacToe{
 	}
 
 	public boolean insertSymbol(int player, int position) {
+		if(gameBoard[0][0] == '0') {
+			return true;
+		}
 		return false;
 	}
 
