@@ -13,5 +13,7 @@ public class TicTacToeTest{
 	@Test
 	public void testInsertSymbol() {
 		assertEquals(true, game.insertSymbol(1,1));
+		assertEquals(false, game.insertSymbol(1,0));
+		assertEquals(false, game.insertSymbol(1,10));
 	}
 }

@@ -32,10 +32,18 @@ public class TicTacToe{
 		pos.col = position % BOARDSIZE;
 		return pos;
 	}
+	private boolean validatePosition(int position) {
+		if(position < 1 || position > 9) {
+			return false;
+		}
+		return true;
+	}
 	public boolean insertSymbol(int player, int position) {
-		BoardPosition pos = convertPosition(position - 1);
-		if(gameBoard[pos.row][pos.col] == '0') {
-			return true;
+		if(validatePosition(position)) {
+			BoardPosition pos = convertPosition(position - 1);
+			if(gameBoard[pos.row][pos.col] == '0') {
+				return true;
+			}
 		}
 		return false;
 	}
