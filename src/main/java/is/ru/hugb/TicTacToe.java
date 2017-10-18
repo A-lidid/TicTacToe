@@ -26,11 +26,23 @@ public class TicTacToe{
 		return new String(builder);
 	}
 
+	private BoardPosition convertPosition(int position) {
+		BoardPosition pos = new BoardPosition();
+		pos.row = position / BOARDSIZE;
+		pos.col = position % BOARDSIZE;
+		return pos;
+	}
 	public boolean insertSymbol(int player, int position) {
-		if(gameBoard[0][0] == '0') {
+		BoardPosition pos = convertPosition(position - 1);
+		if(gameBoard[pos.row][pos.col] == '0') {
 			return true;
 		}
 		return false;
+	}
+
+	private class BoardPosition {
+		private int row;
+		private int col;
 	}
 
 }
