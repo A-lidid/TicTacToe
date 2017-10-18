@@ -13,8 +13,13 @@ public class TicTacToeTest{
 	@Test
 	public void testInsertSymbol() {
 		assertEquals(true, game.insertSymbol(1,1));
+		assertEquals("x12\n345\n678\n", game.returnGameBoard());
 		assertEquals(false, game.insertSymbol(1,0));
 		assertEquals(false, game.insertSymbol(1,10));
 		assertEquals(true, game.insertSymbol(1,9));
+		assertEquals("x12\n345\n67x\n", game.returnGameBoard());
+		assertEquals(true, game.insertSymbol(2,2));
+		assertEquals("xo2\n345\n67x\n", game.returnGameBoard());
+		assertEquals(false, game.insertSymbol(2,1));
 	}
 }

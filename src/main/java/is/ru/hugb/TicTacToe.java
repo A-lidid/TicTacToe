@@ -3,9 +3,12 @@ package is.ru.hugb;
 public class TicTacToe{
 
 	private final int BOARDSIZE = 3;
+	private final int PLAYERONE = 1;
+	private final int PLAYERTWO = 2;
 	private final char playerOneSymbol = 'x';
 	private final char playerTwoSymbol = 'o';
 	private char[][] gameBoard;
+
 	TicTacToe() {
 		gameBoard = new char[BOARDSIZE][BOARDSIZE];
 		for(int i = 0; i < BOARDSIZE; i++) {
@@ -56,7 +59,12 @@ public class TicTacToe{
 		if(validatePosition(position)) {
 			BoardPosition pos = convertPosition(position - 1);
 			if(gameBoard[pos.row][pos.col] != playerOneSymbol && gameBoard[pos.row][pos.col] != playerTwoSymbol) {
-				gameBoard[pos.row][pos.col] = playerOneSymbol;
+				if(player == PLAYERONE) {
+					gameBoard[pos.row][pos.col] = playerOneSymbol;
+				}
+				else {
+					gameBoard[pos.row][pos.col] = playerTwoSymbol;
+				}
 				return true;
 			}
 		}
