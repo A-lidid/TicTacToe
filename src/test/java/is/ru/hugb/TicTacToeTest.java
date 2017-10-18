@@ -15,5 +15,6 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(1,1));
 		assertEquals(false, game.insertSymbol(1,0));
 		assertEquals(false, game.insertSymbol(1,10));
+		assertEquals(true, game.insertSymbol(1,9));
 	}
 }

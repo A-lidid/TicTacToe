@@ -2,7 +2,9 @@ package is.ru.hugb;
 
 public class TicTacToe{
 
-	private final int BOARDSIZE = 3;	
+	private final int BOARDSIZE = 3;
+	private final char playerOneSymbol = 'x';
+	private final char playerTwoSymbol = 'o';
 	private char[][] gameBoard;
 	TicTacToe() {
 		gameBoard = new char[BOARDSIZE][BOARDSIZE];
@@ -15,6 +17,11 @@ public class TicTacToe{
 	public static void main(String[] args) {   
 		
 	}
+	/**
+	*
+	*@param
+	*@return returns a string representation of the current board state
+	*/
 	public String returnGameBoard() {
 		StringBuilder builder = new StringBuilder();
 		for(int i = 0; i < BOARDSIZE; i++) {
@@ -38,10 +45,18 @@ public class TicTacToe{
 		}
 		return true;
 	}
+
+	/**
+	*
+	*@param player the player who's turn it is
+	*@param position the board position to place the active players symbol
+	*@return return true if symbol was placed or false otherwise
+	*/
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
 			BoardPosition pos = convertPosition(position - 1);
-			if(gameBoard[pos.row][pos.col] == '0') {
+			if(gameBoard[pos.row][pos.col] != playerOneSymbol && gameBoard[pos.row][pos.col] != playerTwoSymbol) {
+				gameBoard[pos.row][pos.col] = playerOneSymbol;
 				return true;
 			}
 		}
