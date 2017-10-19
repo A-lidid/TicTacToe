@@ -42,6 +42,7 @@ public class TicTacToe{
 		pos.col = position % BOARDSIZE;
 		return pos;
 	}
+
 	private boolean validatePosition(int position) {
 		if(position < 1 || position > 9) {
 			return false;
@@ -49,6 +50,9 @@ public class TicTacToe{
 		return true;
 	}
 
+	public boolean isGameOver() {
+		return false;
+	}
 	/**
 	*
 	*@param player the player who's turn it is

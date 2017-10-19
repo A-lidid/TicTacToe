@@ -10,6 +10,7 @@ public class TicTacToeTest{
 	public void returnGameBoard() {
 		assertEquals("012\n345\n678\n", game.returnGameBoard());
 	}
+	
 	@Test
 	public void testInsertSymbol() {
 		assertEquals(true, game.insertSymbol(1,1));
@@ -22,4 +23,5 @@ public class TicTacToeTest{
 		assertEquals("xo2\n345\n67x\n", game.returnGameBoard());
 		assertEquals(false, game.insertSymbol(2,1));
 	}
+
 }
