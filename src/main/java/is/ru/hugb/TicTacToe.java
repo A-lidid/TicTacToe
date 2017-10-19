@@ -6,5 +6,7 @@ public class TicTacToe{
 		
 	}
 
-
+	public String toString() {
+		return "012\n345\n678\n";
+	}
 }
