@@ -15,5 +15,6 @@ public class TicTacToeTest{
 	@Test
 	public void testSymbolChanges() {
 		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals("x12\n345\n678\n", game.toString());
 	}
 }
