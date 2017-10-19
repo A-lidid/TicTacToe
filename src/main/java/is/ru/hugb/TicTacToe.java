@@ -26,4 +26,8 @@ public class TicTacToe{
 		}
 		return builder.toString();
 	}
+
+	public boolean insertSymbol(int player, int position) {
+		return true;
+	}
 }
