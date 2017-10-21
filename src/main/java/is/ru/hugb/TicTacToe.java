@@ -69,7 +69,17 @@ public class TicTacToe{
 		if(gameBoard[0][2] == gameBoard[1][1] && gameBoard[0][2] ==gameBoard[2][0]) {
 			return getPlayerFromSymbol(gameBoard[0][2]);
 		}
-
+		int symbolCounter = 0;
+		for(int i = 0; i < BOARDSIZE; i++) {
+			for(int j = 0; j < BOARDSIZE; j++) {
+				if(gameBoard[i][j] == PLAYERONESYMBOL || gameBoard[i][j] == PLAYERTWOSYMBOL) {
+					symbolCounter++;
+				}
+			}
+		}
+		if(symbolCounter == 9) {
+			return 4;
+		}
 		return 0;
 	}
 
