@@ -15,6 +15,7 @@ public class TicTacToeTest{
 
 	@Test
 	public void testSymbolChanges() {
+		game.initializeGameboard();
 		assertEquals(true, game.insertSymbol(1, 1));
 		assertEquals("x12\n345\n678\n", game.toString());
 		assertEquals(false, game.insertSymbol(1, 10));
@@ -56,5 +57,10 @@ public class TicTacToeTest{
 		assertEquals("xo2\n345\n678\n", game.toString());
 		assertEquals(false, game.insertSymbol(1, 1));
 		assertEquals(false, game.insertSymbol(2, 2));
+	}
+	@Test
+	public void testGameNotOver() {
+		game.initializeGameboard();
+		assertEquals(0, game.isGameOver());
 	}
 }

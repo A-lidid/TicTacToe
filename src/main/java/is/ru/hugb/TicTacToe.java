@@ -46,6 +46,11 @@ public class TicTacToe{
 		}
 		return true;
 	}
+
+	public int isGameOver() {
+		
+		return 0;
+	}
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
 			BoardCoords coords = convertBoardPosition(position - 1);
