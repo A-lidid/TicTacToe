@@ -38,4 +38,10 @@ public class TicTacToeTest{
 		game.initializeGameboard();
 		assertEquals("012\n345\n678\n", game.toString());
 	}
+	@Test
+	public void testCorrectSymbolInsertedForPlayer2() {
+		game.initializeGameboard();
+		assertEquals(true, game.insertSymbol(2, 1));
+		assertEquals("o12\n345\n678\n", game.toString());
+	}
 }

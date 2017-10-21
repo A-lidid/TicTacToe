@@ -45,7 +45,12 @@ public class TicTacToe{
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
 			BoardCoords coords = convertBoardPosition(position - 1);
-			gameBoard[coords.row][coords.col] = 'x';
+			if(player == 2) {
+				gameBoard[coords.row][coords.col] = 'o';
+			}
+			else {	
+				gameBoard[coords.row][coords.col] = 'x';
+			}
 			return true;	
 		}
 		return false;
