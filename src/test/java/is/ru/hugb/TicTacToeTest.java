@@ -26,6 +26,15 @@ public class TicTacToeTest{
 		game.initializeGameboard();
 		assertEquals("012\n345\n678\n", game.toString());
 		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals(true, game.insertSymbol(1, 2));
+		assertEquals(true, game.insertSymbol(1, 3));
+		assertEquals(true, game.insertSymbol(1, 4));
+		assertEquals(true, game.insertSymbol(1, 5));
+		assertEquals(true, game.insertSymbol(1, 6));
+		assertEquals(true, game.insertSymbol(1, 7));
+		assertEquals(true, game.insertSymbol(1, 8));
+		assertEquals(true, game.insertSymbol(1, 9));
+		assertEquals("xxx\nxxx\nxxx\n", game.toString());
 		game.initializeGameboard();
 		assertEquals("012\n345\n678\n", game.toString());
 	}
