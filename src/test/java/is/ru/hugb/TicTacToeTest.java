@@ -9,6 +9,7 @@ public class TicTacToeTest{
 
 	@Test
 	public void returnGameBoard() {
+		game.initializeGameboard();
 		assertEquals("012\n345\n678\n", game.toString());
 	}
 
@@ -16,7 +17,16 @@ public class TicTacToeTest{
 	public void testSymbolChanges() {
 		assertEquals(true, game.insertSymbol(1, 1));
 		assertEquals("x12\n345\n678\n", game.toString());
-		assertEquals(false, game.insertSymbol(1, 9));
-		assertEquals(false, game.insertSymbol(1, -1));
+		assertEquals(false, game.insertSymbol(1, 10));
+		assertEquals(false, game.insertSymbol(1, 0));
+	}
+
+	@Test
+	public void testInitializeGameboard() {
+		game.initializeGameboard();
+		assertEquals("012\n345\n678\n", game.toString());
+		assertEquals(true, game.insertSymbol(1, 1));
+		game.initializeGameboard();
+		assertEquals("012\n345\n678\n", game.toString());
 	}
 }

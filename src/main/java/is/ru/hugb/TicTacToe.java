@@ -6,16 +6,20 @@ public class TicTacToe{
 	public TicTacToe() {
 		
 		gameBoard = new char[BOARDSIZE][BOARDSIZE];
+		initializeGameboard();
+	}
+
+	public static void main(String[] args) {   
+		
+	}
+
+	public void initializeGameboard() {
 		for(int row = 0; row < BOARDSIZE; row++) {
 			for(int col = 0; col < BOARDSIZE; col++) {
 				gameBoard[row][col] = Character.forDigit(row * 3 + col, 10);
 			}
 		}
 	}
-	public static void main(String[] args) {   
-		
-	}
-
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		for(int row = 0; row < BOARDSIZE; row++) {
@@ -27,11 +31,32 @@ public class TicTacToe{
 		return builder.toString();
 	}
 
+	private BoardCoords convertBoardPosition(int position) {
+		int row = position / BOARDSIZE;
+		int col = position % BOARDSIZE;
+		return new BoardCoords(row, col);		
+	}
+	private boolean validatePosition(int position) {
+		if(position > 9 || position < 1) {
+			return false;
+		}
+		return true;
+	}
 	public boolean insertSymbol(int player, int position) {
-		if(position >= 0 && position < 9) {
-			gameBoard[0][0] = 'x';
+		if(validatePosition(position)) {
+			BoardCoords coords = convertBoardPosition(position - 1);
+			gameBoard[coords.row][coords.col] = 'x';
 			return true;	
 		}
 		return false;
+	}
+
+	private class BoardCoords{
+		private int row;
+		private int col;
+		BoardCoords(int row, int col) {
+			this.row = row;
+			this.col = col;
+		}
 	}
 }
