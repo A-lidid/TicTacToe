@@ -65,7 +65,7 @@ public class TicTacToeTest{
 	}
 
 	@Test
-	public void testPlayerOneWon() {
+	public void testPlayerOneWonRows() {
 		game.initializeGameboard();
 		assertEquals(0, game.isGameOver());
 		assertEquals(true, game.insertSymbol(1, 1));
@@ -74,6 +74,14 @@ public class TicTacToeTest{
 		assertEquals(0, game.isGameOver());
 		assertEquals(true, game.insertSymbol(1, 3));
 		assertEquals(1, game.isGameOver());
+		game.initializeGameboard();
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(2, 2));
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(1, 3));
+		assertEquals(0, game.isGameOver());
 		game.initializeGameboard();
 		assertEquals(0, game.isGameOver());
 		assertEquals(true, game.insertSymbol(1, 4));
@@ -90,5 +98,6 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(1, 9));
 		assertEquals(1, game.isGameOver());
 	}
+
 
 }
