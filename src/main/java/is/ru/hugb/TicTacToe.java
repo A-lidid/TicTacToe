@@ -58,8 +58,6 @@ public class TicTacToe{
 				}
 			}
 		}
-
-		
 		return 0;
 	}
 	public boolean insertSymbol(int player, int position) {

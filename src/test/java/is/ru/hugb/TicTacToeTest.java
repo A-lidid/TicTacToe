@@ -98,6 +98,15 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(1, 9));
 		assertEquals(1, game.isGameOver());
 	}
-
-
+	@Test
+	public void testPlayerTwoWonRows() {
+		game.initializeGameboard();
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(2, 1));
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(2, 2));
+		assertEquals(0, game.isGameOver());
+		assertEquals(true, game.insertSymbol(2, 3));
+		assertEquals(2, game.isGameOver());
+	}
 }
