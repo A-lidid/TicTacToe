@@ -48,7 +48,11 @@ public class TicTacToe{
 	}
 
 	public int isGameOver() {
-		
+		for(int i = 0; i < BOARDSIZE; i++) {
+			if(gameBoard[i][0] == gameBoard[i][1] && gameBoard[i][0] == gameBoard[i][2]) {
+				return 1;
+			}
+		}
 		return 0;
 	}
 	public boolean insertSymbol(int player, int position) {
