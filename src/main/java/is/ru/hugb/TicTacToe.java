@@ -55,32 +55,29 @@ public class TicTacToe{
 	public int isGameOver() {
 		for(int i = 0; i < BOARDSIZE; i++) {
 			if(gameBoard[i][0] == gameBoard[i][1] && gameBoard[i][0] == gameBoard[i][2]) {
-				if(gameBoard[i][0] == PLAYERONESYMBOL) {
-					return PLAYERONE;
-				}
-				else {
-					return PLAYERTWO;
-				}
+				return getPlayerFromSymbol(gameBoard[i][0]);
 			}
 		}
 		for(int i = 0; i < BOARDSIZE; i++) {
 			if(gameBoard[0][i] == gameBoard[1][i] && gameBoard[0][i] == gameBoard[2][i]) {
-				if(gameBoard[0][i] == PLAYERONESYMBOL) {
-					return PLAYERONE;
-				}
-				else {
-					return PLAYERTWO;
-				}
+				return getPlayerFromSymbol(gameBoard[0][i]);
 			}
 		}
 		if(gameBoard[0][0] == gameBoard[1][1] && gameBoard[0][0] ==gameBoard[2][2]) {
-			return PLAYERONE;
+			return getPlayerFromSymbol(gameBoard[0][0]);
 		}
 		if(gameBoard[0][2] == gameBoard[1][1] && gameBoard[0][2] ==gameBoard[2][0]) {
-			return PLAYERONE;
+			return getPlayerFromSymbol(gameBoard[0][2]);
 		}
 
 		return 0;
+	}
+
+	private int getPlayerFromSymbol(char symbol) {
+		if(symbol == PLAYERONESYMBOL) {
+			return PLAYERONE;
+		}
+		return PLAYERTWO;
 	}
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
