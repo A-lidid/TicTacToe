@@ -58,6 +58,11 @@ public class TicTacToe{
 				}
 			}
 		}
+		for(int i = 0; i < BOARDSIZE; i++) {
+			if(gameBoard[0][i] == gameBoard[1][i] && gameBoard[0][i] == gameBoard[2][i]) {
+				return PLAYERONE;
+			}
+		}
 		return 0;
 	}
 	public boolean insertSymbol(int player, int position) {
@@ -71,7 +76,7 @@ public class TicTacToe{
 					gameBoard[coords.row][coords.col] = PLAYERONESYMBOL;
 				}
 				return true;
-			}	
+			}
 		}
 		return false;
 	}
