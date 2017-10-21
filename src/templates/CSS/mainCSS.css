@@ -1,0 +1,11 @@
+#container{
+    width: 140px;
+}
+
+.btn {
+    display: inline-block;
+    height: 40px;
+    margin-bottom: 4px;
+    vertical-align: top;
+    width: 40px;
+}
