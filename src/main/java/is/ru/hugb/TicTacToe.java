@@ -3,6 +3,10 @@ package is.ru.hugb;
 public class TicTacToe{
 	private char[][] gameBoard;
 	private final int BOARDSIZE = 3;
+	private final int PLAYERONE = 1;
+	private final int PLAYERTWO = 2;
+	private final char PLAYERONESYMBOL = 'x';
+	private final char PLAYERTWOSYMBOL = 'o';
 	public TicTacToe() {
 		
 		gameBoard = new char[BOARDSIZE][BOARDSIZE];
@@ -45,11 +49,11 @@ public class TicTacToe{
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
 			BoardCoords coords = convertBoardPosition(position - 1);
-			if(player == 2) {
-				gameBoard[coords.row][coords.col] = 'o';
+			if(player == PLAYERTWO) {
+				gameBoard[coords.row][coords.col] = PLAYERTWOSYMBOL;
 			}
 			else {	
-				gameBoard[coords.row][coords.col] = 'x';
+				gameBoard[coords.row][coords.col] = PLAYERONESYMBOL;
 			}
 			return true;	
 		}
