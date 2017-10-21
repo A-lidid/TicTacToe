@@ -3,6 +3,8 @@ package is.ru.hugb;
 public class TicTacToe{
 	private char[][] gameBoard;
 	private final int BOARDSIZE = 3;
+	private final int GAMENOTOVER = 0;
+	private final int GAMETIED = 3;
 	private final int PLAYERONE = 1;
 	private final int PLAYERTWO = 2;
 	private final char PLAYERONESYMBOL = 'x';
@@ -78,9 +80,9 @@ public class TicTacToe{
 			}
 		}
 		if(symbolCounter == 9) {
-			return 4;
+			return GAMETIED;
 		}
-		return 0;
+		return GAMENOTOVER;
 	}
 
 	private int getPlayerFromSymbol(char symbol) {

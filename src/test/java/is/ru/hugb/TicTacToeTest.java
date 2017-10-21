@@ -172,6 +172,6 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(1, 8));
 		assertEquals(0, game.isGameOver());
 		assertEquals(true, game.insertSymbol(2, 9));
-		assertEquals(4, game.isGameOver());
+		assertEquals(3, game.isGameOver());
 	}
 }
