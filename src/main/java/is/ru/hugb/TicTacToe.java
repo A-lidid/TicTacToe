@@ -60,7 +60,12 @@ public class TicTacToe{
 		}
 		for(int i = 0; i < BOARDSIZE; i++) {
 			if(gameBoard[0][i] == gameBoard[1][i] && gameBoard[0][i] == gameBoard[2][i]) {
-				return PLAYERONE;
+				if(gameBoard[0][i] == PLAYERONESYMBOL) {
+					return PLAYERONE;
+				}
+				else {
+					return PLAYERTWO;
+				}
 			}
 		}
 		return 0;
