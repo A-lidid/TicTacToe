@@ -44,4 +44,17 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(2, 1));
 		assertEquals("o12\n345\n678\n", game.toString());
 	}
+
+	@Test
+	public void testCantOverwriteOtherSquare(){
+		game.initializeGameboard();
+		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals(false, game.insertSymbol(2, 1));
+		assertEquals("x12\n345\n678\n", game.toString());
+		assertEquals(true, game.insertSymbol(2, 2));
+		assertEquals(false, game.insertSymbol(1, 2));
+		assertEquals("xo2\n345\n678\n", game.toString());
+		assertEquals(false, game.insertSymbol(1, 1));
+		assertEquals(false, game.insertSymbol(2, 2));
+	}
 }

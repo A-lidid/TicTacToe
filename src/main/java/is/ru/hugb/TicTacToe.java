@@ -49,13 +49,15 @@ public class TicTacToe{
 	public boolean insertSymbol(int player, int position) {
 		if(validatePosition(position)) {
 			BoardCoords coords = convertBoardPosition(position - 1);
-			if(player == PLAYERTWO) {
-				gameBoard[coords.row][coords.col] = PLAYERTWOSYMBOL;
-			}
-			else {	
-				gameBoard[coords.row][coords.col] = PLAYERONESYMBOL;
-			}
-			return true;	
+			if(gameBoard[coords.row][coords.col] != PLAYERONESYMBOL && gameBoard[coords.row][coords.col] != PLAYERTWOSYMBOL) {
+				if(player == PLAYERTWO) {
+					gameBoard[coords.row][coords.col] = PLAYERTWOSYMBOL;
+				}
+				else {	
+					gameBoard[coords.row][coords.col] = PLAYERONESYMBOL;
+				}
+				return true;
+			}	
 		}
 		return false;
 	}
