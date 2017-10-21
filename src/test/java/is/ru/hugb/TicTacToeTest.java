@@ -137,4 +137,18 @@ public class TicTacToeTest{
 		assertEquals(true, game.insertSymbol(1, 9));
 		assertEquals(1, game.isGameOver());
 	}
+
+	@Test
+	public void testPlayerOneWonDiagnals() {
+		game.initializeGameboard();
+		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals(true, game.insertSymbol(1, 5));
+		assertEquals(true, game.insertSymbol(1, 9));
+		assertEquals(1, game.isGameOver());		
+		game.initializeGameboard();
+		assertEquals(true, game.insertSymbol(1, 3));
+		assertEquals(true, game.insertSymbol(1, 5));
+		assertEquals(true, game.insertSymbol(1, 7));
+		assertEquals(1, game.isGameOver());
+	}
 }

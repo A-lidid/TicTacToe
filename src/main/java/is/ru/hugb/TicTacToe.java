@@ -73,6 +73,13 @@ public class TicTacToe{
 				}
 			}
 		}
+		if(gameBoard[0][0] == gameBoard[1][1] && gameBoard[0][0] ==gameBoard[2][2]) {
+			return PLAYERONE;
+		}
+		if(gameBoard[0][2] == gameBoard[1][1] && gameBoard[0][2] ==gameBoard[2][0]) {
+			return PLAYERONE;
+		}
+
 		return 0;
 	}
 	public boolean insertSymbol(int player, int position) {
