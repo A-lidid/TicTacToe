@@ -1,9 +1,7 @@
 package is.ru.hugb;
 
 /**
- * @author      Firstname Lastname 
- * @version     1.0  (current version number of program)
- * @since       1.2 (the version of the package this class was first added to)
+ * @author      Arnar  
  */
 public class TicTacToe {
 	/**
@@ -40,7 +38,7 @@ public class TicTacToe {
 	private final char PLAYERTWOSYMBOL = 'o';
 
 	/**
-	* A Tic Tac Toe Game                   (1)
+	* A Tic Tac Toe Game                   
 	*/
 	public TicTacToe() {
 
@@ -53,7 +51,7 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Initialize the game board.                           (1)
+	 * Initialize the game board.                           
 	 * <p>
 	 * Initialze the game board by setting each char in the 
 	 * array to the number that position represents
@@ -67,7 +65,7 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Output a string representation of the game board.  	 (1)
+	 * Output a string representation of the game board.  	 
 	 * @return A String representation of the board.
 	 */
 	public String toString() {
@@ -82,9 +80,9 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Converts a onedimensional position to a two dimensional one.(1)
+	 * Converts a onedimensional position to a two dimensional one.
 	 *
-	 * @param  position integer from 1-9 to convert to a gameBoard position.(3)
+	 * @param  position integer from 1-9 to convert to a gameBoard position.
 	 * @return Returns a BoardCoords that contains a gameBoard position.
 	 */
 	private BoardCoords convertBoardPosition(int position) {
@@ -96,13 +94,13 @@ public class TicTacToe {
 	/**
 	 * Validates that a position is between 1 and 9.
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
+	 * Longer description. If there were any, it would be    
 	 * here.
 	 * <p>
 	 * And even more explanations to follow in consecutive
 	 * paragraphs separated by HTML paragraph breaks.
 	 *
-	 * @param  position Description text text text.          (3)
+	 * @param  position Description text text text.          
 	 * @return Returns true if 1 <= position <= 9.
 	 */
 	private boolean validatePosition(int position) {
@@ -113,7 +111,7 @@ public class TicTacToe {
 	}
 
 	/**
-	* Function that checks if the game is over                          (1)
+	* Function that checks if the game is over                          
 	* <p>
 	* Function that checks either plays has 3 symbols in a row or the game
 	* board is full
@@ -153,8 +151,8 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Function that returns the players symbol.                    (1)
-	 * @param  symbol the symbol of the player.          (3)
+	 * Function that returns the players symbol.                    
+	 * @param  symbol the symbol of the player.          
 	 * @return Returns 1 if symbol is player ones symbol, 2 otherwise.
 	 */
 	private int getPlayerFromSymbol(char symbol) {
@@ -165,8 +163,9 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Inserts a players symbol into the gameboard.         (1)
-	 * @param  position the board position to place the symbol         (3)
+	 * Inserts a players symbol into the gameboard.         
+	 * @param  position the board position to place the symbol         
+	 * @param player theplayer whoes turn it is.
 	 * @return returns true if the symbol is placed, false otherwise.
 	 */
 	public boolean insertSymbol(int player, int position) {
