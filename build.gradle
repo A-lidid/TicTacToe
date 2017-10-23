@@ -30,5 +30,12 @@ dependencies {
     testCompile 'junit:junit:4.8.2'
 }
 
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    destinationDir = file("./docs/apidocs/")
+}
 
 task stage(dependsOn: installDist)
+
+
