@@ -2,51 +2,45 @@ package is.ru.hugb;
 
 /**
  * @author      Firstname Lastname 
- * @version     1.6  (current version number of program)
+ * @version     1.0  (current version number of program)
  * @since       1.2 (the version of the package this class was first added to)
  */
 public class TicTacToe {
 	/**
-	* Description of the variable here.
+	* A 3x3 array of characters that keeps track of the state of the board.
 	*/
 	private char[][] gameBoard;
 	/**
-	* Description of the variable here.
+	* The length of the game board.
 	*/
 	private final int BOARDSIZE = 3;
 	/**
-	* Description of the variable here.
+	* A constant to indicate the game is still ongoing.
 	*/
 	private final int GAMENOTOVER = 0;
 	/**
-	* Description of the variable here.
+	* A constant to indicate the game has ended in a tie.
 	*/
 	private final int GAMETIED = 3;
 	/**
-	* Description of the variable here.
+	* A constant to represent player one.
 	*/
 	private final int PLAYERONE = 1;
 	/**
-	* Description of the variable here.
+	* A constant to represent player two.
 	*/
 	private final int PLAYERTWO = 2;
 	/**
-	* Description of the variable here.
+	* A constant to represent player one's symbol.
 	*/
 	private final char PLAYERONESYMBOL = 'x';
 	/**
-	* Description of the variable here.
+	* A constant to represent player two's symbol.
 	*/
 	private final char PLAYERTWOSYMBOL = 'o';
 
 	/**
-	* Short one line description.                           (1)
-	* <p>
-	* Longer description. If there were any, it would be    (2)
-	* here.
-	* <p>
-	* And even more explanations to follow in consecutive
-	* paragraphs separated by HTML paragraph breaks.
+	* A Tic Tac Toe Game                   (1)
 	*/
 	public TicTacToe() {
 
@@ -59,13 +53,10 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
+	 * Initialize the game board.                           (1)
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * Initialze the game board by setting each char in the 
+	 * array to the number that position represents
 	 */
 	public void initializeGameboard() {
 		for (int row = 0; row < BOARDSIZE; row++) {
@@ -76,15 +67,8 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * 
-	 * @return Description text text text.
+	 * Output a string representation of the game board.  	 (1)
+	 * @return A String representation of the board.
 	 */
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -98,16 +82,10 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * Converts a onedimensional position to a two dimensional one.(1)
 	 *
-	 * @param  position Description text text text.          (3)
-	 * @return Description text text text.
+	 * @param  position integer from 1-9 to convert to a gameBoard position.(3)
+	 * @return Returns a BoardCoords that contains a gameBoard position.
 	 */
 	private BoardCoords convertBoardPosition(int position) {
 		int row = position / BOARDSIZE;
@@ -116,7 +94,7 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
+	 * Validates that a position is between 1 and 9.
 	 * <p>
 	 * Longer description. If there were any, it would be    (2)
 	 * here.
@@ -125,7 +103,7 @@ public class TicTacToe {
 	 * paragraphs separated by HTML paragraph breaks.
 	 *
 	 * @param  position Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return Returns true if 1 <= position <= 9.
 	 */
 	private boolean validatePosition(int position) {
 		if (position > 9 || position < 1) {
@@ -135,15 +113,13 @@ public class TicTacToe {
 	}
 
 	/**
-	* Short one line description.                           (1)
+	* Function that checks if the game is over                          (1)
 	* <p>
-	* Longer description. If there were any, it would be    (2)
-	* here.
-	* <p>
-	* And even more explanations to follow in consecutive
-	* paragraphs separated by HTML paragraph breaks.
+	* Function that checks either plays has 3 symbols in a row or the game
+	* board is full
 	*
-	* @return Description text text text.
+	* @return Returns 0 if the game is still going, 1 if player one won,
+	* 2 if player two won or 3 if the game is tied.
 	*/
 	public int isGameOver() {
 		for (int i = 0; i < BOARDSIZE; i++) {
@@ -177,16 +153,9 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  symbol Description text text text.          (3)
-	 * @return Description text text text.
+	 * Function that returns the players symbol.                    (1)
+	 * @param  symbol the symbol of the player.          (3)
+	 * @return Returns 1 if symbol is player ones symbol, 2 otherwise.
 	 */
 	private int getPlayerFromSymbol(char symbol) {
 		if (symbol == PLAYERONESYMBOL) {
@@ -196,17 +165,9 @@ public class TicTacToe {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  player Description text text text.          (3)
-	 * @param  position Description text text text.          (3)
-	 * @return Description text text text.
+	 * Inserts a players symbol into the gameboard.         (1)
+	 * @param  position the board position to place the symbol         (3)
+	 * @return returns true if the symbol is placed, false otherwise.
 	 */
 	public boolean insertSymbol(int player, int position) {
 		if (validatePosition(position)) {
