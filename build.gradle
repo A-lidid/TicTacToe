@@ -33,6 +33,7 @@ dependencies {
 javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compile
+    destinationDir = file("./docs/apidocs/")
 }
 
 task stage(dependsOn: installDist)
