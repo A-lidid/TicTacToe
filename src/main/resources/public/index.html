@@ -7,18 +7,18 @@
 </head>
 <body>   
 <div id="container">
-    <form action="/turn" method="post" enctype="multipart/form-data">
-        <button id="top_left" class="btn"></button>
-        <button id="top_middle" class="btn"></button>
-        <button id="top_right" class="btn"></button>
-        <button id="middle_left" class="btn"></button>
-        <button id="middle_middle" class="btn"></button>
-        <button id="middle_right" class="btn"></button>
-        <button id="bottom_left" class="btn"></button>
-        <button id="bottom_middle" class="btn"></button>
-        <button id="bottom_right" class="btn"></button>
-    </form>
-	<form action="/reset" method="post" enctype="multipart/form-data">
+    
+        <button id="1" class="btn"></button>
+        <button id="2" class="btn"></button>
+        <button id="3" class="btn"></button>
+        <button id="4" class="btn"></button>
+        <button id="5" class="btn"></button>
+        <button id="6" class="btn"></button>
+        <button id="7" class="btn"></button>
+        <button id="8" class="btn"></button>
+        <button id="9" class="btn"></button>
+
+	<form action="/" method="post" enctype="multipart/form-data">
 		<button id="reset">Reset</button> 
     </form>
 </div>
@@ -28,7 +28,13 @@
 ></script>
 <script>
     $(document).ready(function() {
-     
+        $(".btn").click(function(){
+            this.prop('value', 'this');
+            var btn = this.id;
+            btn = "" + btn;
+
+            $(btn).prop('value', IDBTransaction);
+        });
     });
   </script>
 </body>

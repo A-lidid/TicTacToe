@@ -20,6 +20,9 @@ public class TicTacToeWeb {
         
         TicTacToe game = new TicTacToe();
         
-        put("/turn", (req, res) -> "hi");
+        put("/", (req, res) -> /*{
+            String cellNum = req.queryParams("btn");
+            return sellNum;
+        }*/ "hi");
     }
 }
