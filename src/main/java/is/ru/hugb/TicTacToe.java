@@ -175,7 +175,8 @@ public class TicTacToe {
 					&& gameBoard[coords.row][coords.col] != PLAYERTWOSYMBOL) {
 				if (player == PLAYERTWO) {
 					gameBoard[coords.row][coords.col] = PLAYERTWOSYMBOL;
-				} else {
+				} 
+				else {
 					gameBoard[coords.row][coords.col] = PLAYERONESYMBOL;
 				}
 				return true;
