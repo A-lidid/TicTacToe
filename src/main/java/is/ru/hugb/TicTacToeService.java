@@ -11,4 +11,8 @@ public class TicTacToeService {
 		turnCount = 0;
 		ticTacToe.initializeGameboard();
 	}
+	public boolean insertSymbol(int number) {
+		ticTacToe.insertSymbol(1, number);
+		return true;
+	}
 }

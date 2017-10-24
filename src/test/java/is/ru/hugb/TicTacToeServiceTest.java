@@ -18,4 +18,12 @@ public class TicTacToeServiceTest {
 		service.initialize();
 		assertEquals("012\n345\n678\n", service.toString());
 	}
+
+	@Test
+	public void testInsertSymbol() {
+		service.initialize();
+		assertEquals(true, service.insertSymbol(2));
+		assertEquals("0x2\n345\n678\n", service.toString());
+	}
+
 }
