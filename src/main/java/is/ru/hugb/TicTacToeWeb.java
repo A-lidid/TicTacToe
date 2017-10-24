@@ -1,5 +1,9 @@
 package is.ru.hugb;
 
+import java.util.HashMap;
+
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 
 public class TicTacToeWeb {
@@ -16,13 +20,13 @@ public class TicTacToeWeb {
 
     public static void main(String[] args) {
         port(getHerokuPort());
-        staticFileLocation("/public");        
+        staticFileLocation("/public");
         
         TicTacToe game = new TicTacToe();
         
-        put("/", (req, res) -> /*{
-            String cellNum = req.queryParams("btn");
-            return sellNum;
-        }*/ "hi");
+        get("/", (req, res) -> {
+
+            return new ModelAndView(new HashMap(), "templates/index.vtl");
+        },new VelocityTemplateEngine());
     }
 }
