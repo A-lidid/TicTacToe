@@ -1,4 +1,5 @@
 package is.ru.hugb;
+import java.util.ArrayList;
 
 /**
  * @author      Arnar  
@@ -108,6 +109,22 @@ public class TicTacToe {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	* Function that returns an array of the board positions                         
+	* <p>
+	*
+	* @return Returns an ArrayList of the board positions
+	*/
+	public ArrayList<String> getArray() {
+		ArrayList<String> board = new ArrayList<String>();
+		for(int i = 0; i < BOARDSIZE; i++) {
+			for(int j = 0; j < BOARDSIZE; j++) {
+				board.add(Character.toString(gameBoard[i][j]));
+			}
+		}
+		return board;
 	}
 
 	/**
