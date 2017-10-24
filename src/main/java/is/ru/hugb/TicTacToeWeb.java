@@ -1,6 +1,7 @@
 package is.ru.hugb;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -22,52 +23,38 @@ public class TicTacToeWeb {
         port(getHerokuPort());
         staticFileLocation("/public");
         
-        TicTacToe game = new TicTacToe();
+        TicTacToeService game = new TicTacToeService();
         
         get("/", (req, res) -> {
             HashMap<String, Object> values = new HashMap<>();
-            values.put("turn", "X");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "X");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "X");
+            game.initialize();
+            ArrayList<String> turn = game.getArray();
+            
+            values.put("turn", turn);
             return new ModelAndView(values, "templates/index.vtl");
             
         }, new VelocityTemplateEngine());
 
         post("/", (req, res) -> {
+
+            Thread.sleep(5); // this is only to make shure so this runs after the '/game' function
             HashMap<String, Object> values = new HashMap<>();
-            values.put("turn", "X");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "X");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "O");
-            values.put("turn", "X");
+            ArrayList<String> turn = game.getArray();
+            
+            values.put("turn", turn);
             return new ModelAndView(values, "templates/index.vtl");
         }, new VelocityTemplateEngine());
 
         post("/game", (req, res) -> {
-            res.type("application/json");
-            HashMap<String, Object> values = new HashMap<>();
-
             //test in console to see if right id is returning
             //System.out.println(req.queryParams("id"));
 
             int id = Integer.parseInt(req.queryParams("id"));
             System.out.println(id);
-            //String player game.insertSymbol(id);
+            if (id == -1) game.initialize();
+            else game.insertSymbol(id + 1);
 
-           //if (id == 1) 
-           values.put("one", "X");
-
-            return new ModelAndView(values, "templates/index.vtl");
+            return new ModelAndView(new HashMap<>(), "templates/index.vtl");
         }, new VelocityTemplateEngine());
     }
 }
