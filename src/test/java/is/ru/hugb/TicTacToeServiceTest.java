@@ -29,8 +29,15 @@ public class TicTacToeServiceTest {
 	@Test
 	public void testInsertMultipleSymbols() {
 		service.initialize();
-		assertEquals(true,service.insertSymbol(1));
-		assertEquals(true,service.insertSymbol(2));
+		assertEquals(true, service.insertSymbol(1));
+		assertEquals(true, service.insertSymbol(2));
 		assertEquals("xo2\n345\n678\n", service.toString());
+	}
+
+	@Test
+	public void testInsertOverSymbol() {
+		service.initialize();
+		assertEquals(true, service.insertSymbol(1));
+		assertEquals(false, service.insertSymbol(1));
 	}
 }
