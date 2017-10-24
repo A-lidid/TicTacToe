@@ -7,5 +7,8 @@ public class TicTacToeService {
 	public String toString() {
 		return ticTacToe.toString();
 	}
-	
+	public void initialize() {
+		turnCount = 0;
+		ticTacToe.initializeGameboard();
+	}
 }

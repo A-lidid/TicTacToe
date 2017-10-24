@@ -9,6 +9,13 @@ public class TicTacToeServiceTest {
 
 	@Test
 	public void testToString() {
+		service.initialize();
+		assertEquals("012\n345\n678\n", service.toString());
+	}
+
+	@Test
+	public void testInitialize() {
+		service.initialize();
 		assertEquals("012\n345\n678\n", service.toString());
 	}
 }
