@@ -12,7 +12,8 @@ public class TicTacToeService {
 		ticTacToe.initializeGameboard();
 	}
 	public boolean insertSymbol(int number) {
-		ticTacToe.insertSymbol(1, number);
+		ticTacToe.insertSymbol(turnCount % 2 + 1, number);
+		turnCount++;
 		return true;
 	}
 }
