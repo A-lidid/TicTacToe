@@ -9,17 +9,17 @@
 <h1>TicTacToe</h1> 
 <div id="container">
     <!--<form action="/turn" method="post" enctype="multipart/form-data"> -->
-        <button id="top_left" onclick="foo(this)" class="btn"></button>
-        <button id="top_middle" onclick="foo(this)" class="btn"></button>
-        <button id="top_right" onclick="foo(this)" class="btn"></button>
-        <button id="middle_left" onclick="foo(this)" class="btn"></button>
-        <button id="middle_middle" onclick="foo(this)" class="btn"></button>
-        <button id="middle_right" onclick="foo(this)" class="btn"></button>
-        <button id="bottom_left" onclick="foo(this)" class="btn"></button>
-        <button id="bottom_middle" onclick="foo(this)" class="btn"></button>
-        <button id="bottom_right" onclick="foo(this)" class="btn"></button>
+        <button id="1" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="2" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="3" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="4" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="5" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="6" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="7" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="8" onclick="getId(this, this.id)" class="btn"></button>
+        <button id="9" onclick="getId(this, this.id)" class="btn"></button>
     <!--</form> -->
-	<form action="/" method="post" enctype="multipart/form-data">
+	<form action="/" method="post">
 		<button id="reset">Reset</button> 
     </form>
 </div>
@@ -27,33 +27,15 @@
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
 ></script>
-<script>
-    $(document).ready(function() {
-        $(".btn").click(function(){
-            this.prop('value', 'this');
-            var btnNr = this.id;
-            btnNr = "#" + btn;
 
-            $(btn).prop('value', btnNr);
-        });
-    });
-
-</script>
 <script type="text/javascript">
-var count = 0;
-var foo = function(param) {
-    
-    if(count % 2 == 0){
-        param.innerHTML = "X";
-    }
+     
+     $(document).ready(function() {
+        $("button").click(function() {
 
-    if(count % 2 != 0){
-        param.innerHTML= "O";
-    }
-
-    count = count + 1;
-    
-};
+            $.post( "/game", { id: this.id} );
+        });
+     });
 </script>
 </body>
 </html>

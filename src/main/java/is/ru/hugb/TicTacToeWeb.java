@@ -27,6 +27,13 @@ public class TicTacToeWeb {
         get("/", (req, res) -> {
 
             return new ModelAndView(new HashMap(), "templates/index.vtl");
-        },new VelocityTemplateEngine());
+        }, new VelocityTemplateEngine());
+
+        post("/game", (req, res) -> {
+
+            res.type("application/json");
+            System.out.println(req.queryParams("id"));
+            return new ModelAndView(new HashMap(), "templates/index.vtl");
+        }, new VelocityTemplateEngine());
     }
 }
