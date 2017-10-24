@@ -6,24 +6,21 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>  
-<h1>TicTacToe</h1> 
-<div id="container">
-    <!--<form action="/turn" method="post" enctype="multipart/form-data"> -->
-        <button id="1" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="2" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="3" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="4" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="5" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="6" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="7" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="8" onclick="getId(this, this.id)" class="btn"></button>
-        <button id="9" onclick="getId(this, this.id)" class="btn"></button>
-    <!--</form> -->
-	<form action="/" method="post">
-		<button id="reset">Reset</button> 
-    </form>
-</div>
+    <h1>TicTacToe</h1> 
+    <div id="container">
+    
+    #foreach($i in $turn)
+        <button id="$foreach.index" class="btn">$i</button>
+    #end
+    #foreach($i in $turn)
+        <p>$i</p>
+    #end
 
+        
+            <button id="0">Reset</button> 
+        </form>
+    </div>
+    
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
 ></script>
@@ -32,8 +29,9 @@
      
      $(document).ready(function() {
         $("button").click(function() {
-
-            $.post( "/game", { id: this.id} );
+            
+            $.post( "/game", {id: this.id });
+            $(this).html({"$one"});
         });
      });
 </script>

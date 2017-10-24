@@ -25,15 +25,49 @@ public class TicTacToeWeb {
         TicTacToe game = new TicTacToe();
         
         get("/", (req, res) -> {
+            HashMap<String, Object> values = new HashMap<>();
+            values.put("turn", "X");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "X");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "X");
+            return new ModelAndView(values, "templates/index.vtl");
+            
+        }, new VelocityTemplateEngine());
 
-            return new ModelAndView(new HashMap(), "templates/index.vtl");
+        post("/", (req, res) -> {
+            HashMap<String, Object> values = new HashMap<>();
+            values.put("turn", "X");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "X");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "O");
+            values.put("turn", "X");
+            return new ModelAndView(values, "templates/index.vtl");
         }, new VelocityTemplateEngine());
 
         post("/game", (req, res) -> {
-
             res.type("application/json");
-            System.out.println(req.queryParams("id"));
-            return new ModelAndView(new HashMap(), "templates/index.vtl");
+            HashMap<String, Object> values = new HashMap<>();
+
+            //test in console to see if right id is returning
+            //System.out.println(req.queryParams("id"));
+
+            int id = Integer.parseInt(req.queryParams("id"));
+            System.out.println(id);
+            //String player game.insertSymbol(id);
+
+           //if (id == 1) 
+           values.put("one", "X");
+
+            return new ModelAndView(values, "templates/index.vtl");
         }, new VelocityTemplateEngine());
     }
 }
