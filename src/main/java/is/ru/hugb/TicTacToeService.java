@@ -12,6 +12,14 @@ public class TicTacToeService {
 	*/
 	private int turnCount = 0;
 
+	/**
+	 * Function to return a string representation of the board
+	 * 
+	 * @return A String representation of the game board.
+	 */
+	public String toString() {
+		return ticTacToe.toString();
+	}
 
 	/**
 	 * Initialize the game board.                           
