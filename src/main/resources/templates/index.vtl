@@ -13,7 +13,14 @@
                 <button id="$foreach.index" class="btn">$i</button>
             #end
 
-            <button id="-1">Reset</button> 
+            <button id="-1">Reset</button>
+            #if($status == 1)
+                <h2>Player1 vann!</h2>
+            #elseif($status == 2)
+                <h2>Player2 vann!</h2>
+            #elseif($status == 3)
+                <h2>Jafntefli!!</hs>
+            #end
         </form>
     </div>
     
