@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>  
+    <h1>TicTacToe</h1> 
+    <div id="container">
+        <form action="/" method="post">
+            #foreach($i in $turn)
+                <button id="$foreach.index" class="btn">$i</button>
+            #end
+
+            <button id="-1">Reset</button> 
+        </form>
+    </div>
+    
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+></script>
+
+<script type="text/javascript">
+     
+     $(document).ready(function() {
+        $("button").click(function() {
+            
+            $.post( "/game", {id: this.id });
+        });
+     });
+</script>
+</body>
+</html>

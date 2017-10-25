@@ -1,5 +1,10 @@
 package is.ru.hugb;
 
+import java.util.HashMap;
+import java.util.ArrayList;
+
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 
 public class TicTacToeWeb {
@@ -16,10 +21,40 @@ public class TicTacToeWeb {
 
     public static void main(String[] args) {
         port(getHerokuPort());
-        staticFileLocation("/public");        
+        staticFileLocation("/public");
         
-        TicTacToe game = new TicTacToe();
+        TicTacToeService game = new TicTacToeService();
         
-        put("/turn", (req, res) -> "hi");
+        get("/", (req, res) -> {
+            HashMap<String, Object> values = new HashMap<>();
+            game.initialize();
+            ArrayList<String> turn = game.getArray();
+            
+            values.put("turn", turn);
+            return new ModelAndView(values, "templates/index.vtl");
+            
+        }, new VelocityTemplateEngine());
+
+        post("/", (req, res) -> {
+
+            Thread.sleep(5); // this is only to make shure so this runs after the '/game' function
+            HashMap<String, Object> values = new HashMap<>();
+            ArrayList<String> turn = game.getArray();
+            
+            values.put("turn", turn);
+            return new ModelAndView(values, "templates/index.vtl");
+        }, new VelocityTemplateEngine());
+
+        post("/game", (req, res) -> {
+            //test in console to see if right id is returning
+            //System.out.println(req.queryParams("id"));
+
+            int id = Integer.parseInt(req.queryParams("id"));
+            System.out.println(id);
+            if (id == -1) game.initialize();
+            else game.insertSymbol(id + 1);
+
+            return new ModelAndView(new HashMap<>(), "templates/index.vtl");
+        }, new VelocityTemplateEngine());
     }
 }
