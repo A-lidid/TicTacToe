@@ -14,6 +14,14 @@
             #end
 
             <button id="-1">Reset</button> 
+            <button class="btn">$status</button>
+            #if($status == 1)
+                <button class="btn">Player1 vann!</button>
+            #elseif($status == 2)
+                <button class="btn">Player2 vann!</button>
+            #elseif($status == 3)
+                <button class="btn">Jafntefli!!</button>
+            #end
         </form>
     </div>
     
