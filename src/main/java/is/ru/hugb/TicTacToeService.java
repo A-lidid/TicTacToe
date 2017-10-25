@@ -22,7 +22,9 @@ public class TicTacToeService {
 		}
 		return false;
 	}
-
+	public int isGameOver() {
+		return ticTacToe.isGameOver();
+	}
 	public ArrayList<String> getArray() {
 		return ticTacToe.getArray();
 	}
