@@ -121,7 +121,7 @@ public class TicTacToe {
 		ArrayList<String> board = new ArrayList<String>();
 		for(int i = 0; i < BOARDSIZE; i++) {
 			for(int j = 0; j < BOARDSIZE; j++) {
-				if(gameBoard[i][j] != PLAYERONESYMBOL && gameBoard[i][j] != PLAYERTWOSYMBOL){
+				if(gameBoard[i][j] == PLAYERONESYMBOL || gameBoard[i][j] == PLAYERTWOSYMBOL){
 					board.add(Character.toString(gameBoard[i][j]));	
 				}
 				else {
