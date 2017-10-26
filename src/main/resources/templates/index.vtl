@@ -12,19 +12,16 @@
             #foreach($i in $turn)
                 <button id="$foreach.index" class="btn">$i</button>
             #end
-
-            <button id="-1">Reset</button> 
-            <button class="btn">$status</button>
-            #if($status == 1)
-                <button class="btn">Player1 vann!</button>
-            #elseif($status == 2)
-                <button class="btn">Player2 vann!</button>
-            #elseif($status == 3)
-                <button class="btn">Jafntefli!!</button>
-            #end
+            <button id="-1">Reset</button>
         </form>
     </div>
-    
+    #if($status == 1)
+                <h2>X vann!</h2>
+            #elseif($status == 2)
+                <h2>O vann!</h2>
+            #elseif($status == 3)
+                <h2>Jafntefli!!</hs>
+            #end
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
 ></script>
