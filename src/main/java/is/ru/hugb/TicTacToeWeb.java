@@ -42,6 +42,7 @@ public class TicTacToeWeb {
             ArrayList<String> turn = game.getArray();
             
             values.put("turn", turn);
+            values.put("status", game.isGameOver());
             return new ModelAndView(values, "templates/index.vtl");
         }, new VelocityTemplateEngine());
 
