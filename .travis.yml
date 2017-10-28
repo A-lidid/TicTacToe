@@ -32,7 +32,7 @@ jobs:
         - sleep 3
       script: 'gradle selenium'
     - stage: deploy to production
-      if: branch = master
+      #if: branch = master
       script: skip
       deploy:
       - provider: heroku
