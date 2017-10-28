@@ -15,7 +15,6 @@ jobs:
           on:
             all_branches: true
     - stage: test staging
-      #if: branch = master
       addons:
         chrome: stable
       install:
@@ -32,18 +31,6 @@ jobs:
         - sleep 3
       script: 'gradle selenium'
     - stage: deploy to production
-      #if: branch = master
-      script:
-      #after_script:
-      #  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-      #  - git remote add heroku git@heroku.com:infinite-brushlands-76014.git
-      #  - echo "Host heroku.com" >> ~/.ssh/config
-      #  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-      #  - echo "   CheckHostIP no" >> ~/.ssh/config
-      #  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-      #  - heroku keys:clear
-      #  - yes | heroku keys:add
-      #  - yes | git push heroku master
       deploy:
       - provider: heroku
         api_key:
