@@ -18,6 +18,9 @@ repositories {
     jcenter()
 }
 
+sourceSets {
+  selenium
+}
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -39,4 +42,13 @@ javadoc {
 
 task stage(dependsOn: installDist)
 
+test.useTestNG()
 
+task selenium(type: Test, dependsOn: installDist) {
+  testClassesDir = sourceSets.selenium.output.classesDir
+  classpath = sourceSets.selenium.runtimeClasspath
+
+  doFirst {
+    'build/install/TicTacToe/bin/TicTacToe.bat'.execute()
+  }
+}
