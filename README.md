@@ -5,10 +5,11 @@ Build status: [![Build Status](https://travis-ci.org/A-lidid/TicTacToe.svg?branc
 
 ![Picture of game](/img/tictactoe.png?raw=true "Tic tac toe game")
 
-## Prófaðu sjálf/ur
+## Settu upp sjálf/ur
 
 _Fyrir nákvæmar leiðbeiningar er hægt að skoða [development_manual.md)](docs/Development_manual.md)_
 
+[Javadocs](https://a-lidid.github.io/TicTacToe/apidocs/)
 
 ## Deployment
 
