@@ -15,7 +15,7 @@ jobs:
           on:
             all_branches: true
     - stage: test staging
-      if: branch = master
+      #if: branch = master
       addons:
         chrome: stable
       install:
