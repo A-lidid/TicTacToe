@@ -8,11 +8,13 @@ jobs:
     - stage: deploy to staging
       script: skip
       deploy:
-      provider: heroku
-      api_key:
-        - secure: ABDcbJQrIuRh+D+gu4nqwU1tVm8n4Iq3TnD6oEhb79svNavTy2QgcCScQ2MeqVZ2gxi/x5TEz3vfA5Lz3fEMzwxpd/ErsabRuuvJeIo9KEZ2DXsnkmQp9yVUyfQskHHrccBytRXgR/Q7xkzSlHX7OnNyCd1LaLWEli8nCoNFFI+6O2mZ0BMO8y2uL3I7Nfi/SUUxRq2S28zVXVIQyNi+l2G3zgEF+QLSGeT2u1k22MEHSfIqs7WO6g7Ef/QPv71bMHsnnLC8JER9dnNowmKm38TVcSIFavQsYhAq7HhSwN1lQoF8Pn8xrvS0wXxAfvqPZhw0favHlqNqTpT5JG7pR0AWW3htMm4ZTmbbNwtLkXc7IyfUK/MHwRRJuWz0ryK1I0GsK+RbNkcRGC+RrTBvNN8uiCy9NPfVEmDnPIRvKF5BvX5a42tuPJO3rmSzTFCg6s7v18/mElznhZYORskGUpLkjxhGvr7wgggb98A2h6fZFcvY3bXGQWqiVUeQRNcrK0UjUvSUbN5Mkp1dVhoI6q9HYMkHaVwK8jzJzKoD9qTQCDh/UNUFgJKVDUe4f8cIisGFuwnpf8gpcjXZhjIVeVt4uFaGAdI3uq+pM89QvicX2/8zE5aGjh3HQRcJNc3SY1g2lNU8RWGab+JL1ciapIfKtM1IMpp5ptH8WlCrE8I=
-      app: infinite-brushlands-76014
+      deploy:
+        provider: heroku
+        api_key:
+          staging: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
+        app: hidden-dusk-82258
     - stage: test staging
+    #if: branch = master
       addons:
         chrome: stable
       install:
@@ -32,7 +34,8 @@ jobs:
       #if: branch = master
       script: skip
       deploy:
-        provider: heroku
-        api_key:
-          production: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
-        app: hidden-dusk-82258
+      provider: heroku
+      api_key:
+        production: ABDcbJQrIuRh+D+gu4nqwU1tVm8n4Iq3TnD6oEhb79svNavTy2QgcCScQ2MeqVZ2gxi/x5TEz3vfA5Lz3fEMzwxpd/ErsabRuuvJeIo9KEZ2DXsnkmQp9yVUyfQskHHrccBytRXgR/Q7xkzSlHX7OnNyCd1LaLWEli8nCoNFFI+6O2mZ0BMO8y2uL3I7Nfi/SUUxRq2S28zVXVIQyNi+l2G3zgEF+QLSGeT2u1k22MEHSfIqs7WO6g7Ef/QPv71bMHsnnLC8JER9dnNowmKm38TVcSIFavQsYhAq7HhSwN1lQoF8Pn8xrvS0wXxAfvqPZhw0favHlqNqTpT5JG7pR0AWW3htMm4ZTmbbNwtLkXc7IyfUK/MHwRRJuWz0ryK1I0GsK+RbNkcRGC+RrTBvNN8uiCy9NPfVEmDnPIRvKF5BvX5a42tuPJO3rmSzTFCg6s7v18/mElznhZYORskGUpLkjxhGvr7wgggb98A2h6fZFcvY3bXGQWqiVUeQRNcrK0UjUvSUbN5Mkp1dVhoI6q9HYMkHaVwK8jzJzKoD9qTQCDh/UNUFgJKVDUe4f8cIisGFuwnpf8gpcjXZhjIVeVt4uFaGAdI3uq+pM89QvicX2/8zE5aGjh3HQRcJNc3SY1g2lNU8RWGab+JL1ciapIfKtM1IMpp5ptH8WlCrE8I=
+      app: infinite-brushlands-76014
+
