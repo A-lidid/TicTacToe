@@ -7,22 +7,12 @@ Build status: [![Build Status](https://travis-ci.org/A-lidid/TicTacToe.svg?branc
 
 ## Prófaðu sjálf/ur
 
-Ef þig langar að prófa verkefnið er hægt að clona það og unnið fengið það til að keyra á þinni vél. 
 _Fyrir nákvæmar leiðbeiningar er hægt að skoða [development_manual.md)](docs/Development_manual.md)_
-### Forkröfur
-
-[Gradle](https://gradle.org/) 
-
-[Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-
-### Uppsetning
-
 
 
 ## Deployment
 
 _Fyrir nákvæmar leiðbeiningar er hægt að skoða [administration_manual.md)](docs/Administration_manual.md)_
-
 
 ## Built With
 
