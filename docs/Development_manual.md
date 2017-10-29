@@ -17,9 +17,9 @@ Til að opna leikinn án vandræða á hreinni vél þarf að hafa sett upp:
 - Velocity
 
 ### Git
-Notast er við Git við útgáfustjórnun(e. version control) í verkefninu. Til þess að geta opnað okkar TicTacToe skal afrita(e. clone) [repository-ið](https://github.com/orgs/A-lidid/dashboard). Til þess að geta opnað það, þarf að vera með aðgang inn á Git. Til þess að setja upp aðgang þarf að fara inn á [Git](https://github.com/)
+Notast er við Git við útgáfustjórnun(e. version control) í verkefninu. Til þess að geta opnað okkar TicTacToe skal afrita(e. clone) [repository-ið](https://github.com/orgs/A-lidid/dashboard). Til þess að geta opnað það, þarf að vera með aðgang inn á Git. Til þess að setja upp aðgang þarf að fara inn á [Git-hub](https://github.com/)
 
-Útgáfustjórn leyfir notendum að ná í forritið á sinni eigin tölvu, þar getur notandinn búið til branch og getur breytt og þróað forritið þar án þess að breyta á master. Þegar breytingar sem gerðar hafa verið á local branch og hægt er að keyra forritið er hægt að committa breytingunum yfir á master. Gott er að venja sig á að gera pull request áður en það er committað til þess að ná í allar breytingar sem gætu hafa verið gerðar.   
+Útgáfustjórn leyfir notendum að ná í forritið á sinni eigin tölvu, þar getur notandinn búið til branch og getur breytt og þróað forritið þar án þess að breyta á master. Þegar breytingar sem gerðar hafa verið á local branch og hægt er að keyra forritið er hægt að committa breytingunum yfir á master. Gott er að venja sig á að gera "git pull" áður en það er committað til þess að ná í allar breytingar sem gætu hafa verið gerðar.   
 
 ### Java 
 Mikilvægt er að vera með nýjustu útgáfu af Java Development Kit. Hana er að finna á [Oracle]( http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Fyrir windows notendur er mikilvægt að bæta við java path, en hvernig það er gert er hægt að skoða [hér](https://www.java.com/en/download/help/path.xml). 
