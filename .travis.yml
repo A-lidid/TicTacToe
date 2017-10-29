@@ -3,44 +3,41 @@ sudo: required
 language: java
 jobs:
   include:
-    - stage: unit tests
-      script: "gradle check"
-    - stage: deploy to staging
-      script: skip
-      deploy:
-        - provider: heroku
-          api_key:
-            secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
-          app: hidden-dusk-82258
-          on:
-            all_branches: true
-    - stage: test staging
-      addons:
-        chrome: stable
-      install:
-        - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip
-          -P ~/
-        - unzip ~/chromedriver_linux64.zip -d ~/
-        - rm ~/chromedriver_linux64.zip
-        - sudo mv -f ~/chromedriver /usr/local/share/
-        - sudo chmod +x /usr/local/share/chromedriver
-        - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-      before_script:
-        - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
-        - sleep 3
-      script: 'gradle selenium'
-    - stage: deploy to production
-      deploy:
-      - provider: heroku
-        api_key:
-          secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
-        app: infinite-brushlands-76014
-        on:
-            all_branches: true
+  - stage: unit tests
+    script: gradle check
+  - stage: deploy to staging
+    script: skip
+    deploy:
+    - provider: heroku
+      api_key:
+        secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
+      app: hidden-dusk-82258
+      on:
+        all_branches: true
+  - stage: test staging
+    addons:
+      chrome: stable
+    install:
+    - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip
+      -P ~/
+    - unzip ~/chromedriver_linux64.zip -d ~/
+    - rm ~/chromedriver_linux64.zip
+    - sudo mv -f ~/chromedriver /usr/local/share/
+    - sudo chmod +x /usr/local/share/chromedriver
+    - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+    before_script:
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - sleep 3
+    script: gradle selenium
+  - stage: deploy to production
+    deploy:
+    - provider: heroku
+      api_key:
+        secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
+      app: infinite-brushlands-76014
+      on:
+        all_branches: true
 notifications:
   slack:
-    rooms:
-      secure: jkhX6D1BOhx6naMueJDmynhMEwWTA00z9zfx83Bi6+vo/bpmsbdeNz9LqgBaYGT2T7XRAPQgaqTgVbCn8UISuW9qz9KrBkwziUGElkGHKISNx4Ckscg7JbWJR7xRuzT6EwsoCanGS8TSLZ1PZXkV7zOgx3aMFJFg6U/lE54pSbO2xMzcCywqR1q82KJ3bIr0IOeN3r5wPisgFfe98HKckkrmXyQD0RliAE/gW8/7dMYZt8Jmtp0fX6YPFqojzd0UgIenqaP/xM9/EwKvc6ljfigfhugZa2PxT8f8/MuubVRYVFr6tm5xluaCrpviJdIqZCvDIThSEpYfvpcVh3bVXb0/hEVgqazeAdQQASUPbV04jS0BaemWboclYpo3wkbOGusmLBtljOOQ9aoc3NNy0698mkYbqGsAVhW4ejkhD+eKaJYyidPJIH6GKAT2o4pwIJs8ha2vH9jHA5ABRgTvxGzp2AGDEDWvh2WUeiBfs792wOy7AgPrMe5pavFw2DbaXxaTG7PE0Gyw8q48ILpmuNDJEuKNc1nURjsTO9R649uNLznhvIo3RusR6L0Mb+1VNzibJPNYTwGfmwa2jry4X1iebVgEqwhEBp2UmBgH+Ge2w0ykMVkDMBOets5iasU+NX3ELJmUHsBhqlo6guKkLoDqMVFxWZm94aJBkjzfOAE=
-    on_success: always # default: always
-    on_failure: always # default: always
+    secure: I7GvdpiGKKlO2odT3EiSKukpmCQI0GM/zo/Qaaj1XBx22btTk1km6R3zE8GNyHiLpMMGHuZg5HDjF5w1pZDj9CpxQJQf9+oSv+J8pO5uB5XSRfIeOgD4JJVLYBEqLxcp5UDFyTVOFWB+bh+GT8gHiE78Sz39QbeM/BdktszAG9TlDhC2OjlM9ApKOiW9+mpOhh8+oZnL5PRRfcO3r2PD5f+iOvWwPpoSNDhgbuXJ9+pLbSexxQwOZZAH+Q93ggPQuI/ADdSiIkT5F8bGKm8/xUQsKEc0KLiVcKAt9YVbSHtUGmXw8WI0DfxjlEXZ2IhDc5KxyAhLxfEPlYRAd5R4n0zt0SHy3pf4Lx3/zDiSeqjHgqSZfbsNxNHr/PhiqLLRnof1S2PeVNn4awkzS63AIXFNaRGzFx+IJk47GgXfWehgYYjArvFpqmcbWl1wqEIbkQlrfI4ZnKGOF66T9Pw6GMCzat588FJsCbHMfnOg+jzG10VCnZtuOBw8d3h+HtDJolEtoHYqLyuO4FCxadwzUk+zvU0lYCOrWkqBpfInSSl0wa1RKuwtBA5gSH95ohLm8fw4zv+vbY4gK30xN8OW6eKQ8M/tr/yT1NAwebNkEgyxTOhsu6yU6aAnQQjxYbYJS2RGhETz5BM08OkMRLuTYimkUKNRGiXZmyexReUKBCA=
