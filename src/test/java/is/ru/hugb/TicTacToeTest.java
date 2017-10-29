@@ -16,8 +16,8 @@ public class TicTacToeTest{
 	@Test
 	public void testSymbolChanges() {
 		game.initializeGameboard();
-		assertEquals(false, game.insertSymbol(1, 1));
-		assertEquals("furdurfugl", game.toString());
+		assertEquals(true, game.insertSymbol(1, 1));
+		assertEquals("x12\n345\n678\n", game.toString());
 		assertEquals(false, game.insertSymbol(1, 10));
 		assertEquals(false, game.insertSymbol(1, 0));
 	}
