@@ -1,6 +1,40 @@
+dist: trusty
+sudo: required
 language: java
-deploy:
-  provider: heroku
-  api_key:
-    secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
-  app: hidden-dusk-82258
+jobs:
+  include:
+    - stage: unit tests
+      script: "gradle check"
+    - stage: deploy to staging
+      script: skip
+      deploy:
+        - provider: heroku
+          api_key:
+            secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
+          app: hidden-dusk-82258
+          on:
+            all_branches: true
+    - stage: test staging
+      addons:
+        chrome: stable
+      install:
+        - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip
+          -P ~/
+        - unzip ~/chromedriver_linux64.zip -d ~/
+        - rm ~/chromedriver_linux64.zip
+        - sudo mv -f ~/chromedriver /usr/local/share/
+        - sudo chmod +x /usr/local/share/chromedriver
+        - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+      before_script:
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+        - sleep 3
+      script: 'gradle selenium'
+    - stage: deploy to production
+      deploy:
+      - provider: heroku
+        api_key:
+          secure: X69EH0cYFaSBYvPccUMoZ4j6LxNSiXP7if9WBgIKuf1r+aOsTik2bV5EH17fp8zAL0+ifixzTileY4rEfJzmWQUsG3PQ+8kOe5jowsxAxOKPbeJz9VnMhMK1EZXUM9/JLmTRzioMAWw8Fkhihs6fErB9sPaYzF0CxwBRfjSWCyv6wd2waZGE0ZFz7fuWGlN/iqbaq3x5nnFGUMUxjz0ljPhe8194lRM7K5O9Yrz9JLW33m/xvyRWYzyIPDByHytEbPAQ9FixX7+QYPL/0mS5cfumcO9vqUWRQkIjGUtgJKAcR6Bb5Y45Bs8hppcUSWcOA0NfNpU/Bsltt+FNNRewielK/Lw5gtEJn/xXtFeVZ8D8CFWYZm68HoiTrLXjyW+ogjwvTBhKEXNO8F9FS4QnF8ITChXBHtWWR4H1BSWecTnPx6HD/2Rs2NuMcoyW230tsf2zn+w9L4LQUQHZMYfmh8uKJxeljaGB/aJgM+a0cORg2p0INf+nd1ONpEoPoJYwZPr2YMsUWNvjknpFsYiaBXaEfZM6TL+E5WW/GV66sLkDKRnKeApuskiAQPHKt4SotAVJR3G94F97Ch6GY8rT0fJ65YcMez1VgOapXY/89LqLpiij76cZ52BGbFGnJUYPSRnzv3uxtFRvvYl2N/aM+IJE/bs7HZebDFqSCh+GV94=
+        app: infinite-brushlands-76014
+        on:
+            all_branches: true
