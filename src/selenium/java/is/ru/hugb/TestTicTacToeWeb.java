@@ -13,4 +13,40 @@ public class TestTicTacToeWeb extends SeleniumTestWrapper {
     driver.get(baseUrl);
     assertEquals("Tic Tac Toe", driver.getTitle());
   }
+  @Test
+  public void testSymbolAppears() throws Exception {
+    driver.get(baseUrl);
+    WebElement element = driver.findElement(By.id("-1"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("0"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    assertEquals("x", element.getText());
+  }
+
+  @Test
+  public void testXwins() throws Exception {
+  	driver.get(baseUrl);
+  	WebElement element = driver.findElement(By.id("-1"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("0"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("3"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("1"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("4"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("2"));
+    element.sendKeys(Keys.RETURN);
+    Thread.sleep(1000);
+    element = driver.findElement(By.id("status"));
+    assertEquals("'X' vann!", element.getText());
+  }
 }
