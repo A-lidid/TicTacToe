@@ -45,7 +45,7 @@ javadoc {
 
 task stage(dependsOn: installDist)
 
-test.useTestNG()
+//test.useTestNG()
 
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir
