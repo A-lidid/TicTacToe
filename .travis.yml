@@ -38,3 +38,9 @@ jobs:
         app: infinite-brushlands-76014
         on:
             all_branches: true
+notifications:
+  slack:
+    rooms:
+      secure: jkhX6D1BOhx6naMueJDmynhMEwWTA00z9zfx83Bi6+vo/bpmsbdeNz9LqgBaYGT2T7XRAPQgaqTgVbCn8UISuW9qz9KrBkwziUGElkGHKISNx4Ckscg7JbWJR7xRuzT6EwsoCanGS8TSLZ1PZXkV7zOgx3aMFJFg6U/lE54pSbO2xMzcCywqR1q82KJ3bIr0IOeN3r5wPisgFfe98HKckkrmXyQD0RliAE/gW8/7dMYZt8Jmtp0fX6YPFqojzd0UgIenqaP/xM9/EwKvc6ljfigfhugZa2PxT8f8/MuubVRYVFr6tm5xluaCrpviJdIqZCvDIThSEpYfvpcVh3bVXb0/hEVgqazeAdQQASUPbV04jS0BaemWboclYpo3wkbOGusmLBtljOOQ9aoc3NNy0698mkYbqGsAVhW4ejkhD+eKaJYyidPJIH6GKAT2o4pwIJs8ha2vH9jHA5ABRgTvxGzp2AGDEDWvh2WUeiBfs792wOy7AgPrMe5pavFw2DbaXxaTG7PE0Gyw8q48ILpmuNDJEuKNc1nURjsTO9R649uNLznhvIo3RusR6L0Mb+1VNzibJPNYTwGfmwa2jry4X1iebVgEqwhEBp2UmBgH+Ge2w0ykMVkDMBOets5iasU+NX3ELJmUHsBhqlo6guKkLoDqMVFxWZm94aJBkjzfOAE=
+    on_success: always # default: always
+    on_failure: always # default: always
