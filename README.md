@@ -31,9 +31,8 @@ _Fyrir nákvæmar leiðbeiningar er hægt að skoða [administration_manual.md)]
 * **Árni Rong Hao Yu** - [arniyu](https://github.com/arniyu)
 * **Elín Lind Jónsdóttir** - [elinlind](https://github.com/elinlind)
 * **Grétar Matthíasson** - [gretarm](https://github.com/gretarm)
-* **Guðjón Janus Guðjónsson** - [jakobj13](https://github.com/jakobj13)
-* **Jakob Helgi Jónsson** - [JanusG](https://github.com/JanusG)
-
+* **Guðjón Janus Guðjónsson** -[JanusG](https://github.com/JanusG)
+* **Jakob Helgi Jónsson** -  [jakobj13](https://github.com/jakobj13)
 
 
 ## License
