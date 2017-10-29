@@ -8,7 +8,7 @@ Treymið ætlar að útfæra TicTacToe sem vef sem verður hýstur hjá [Heroku]
 ## Rit
 ### Klasarit
 Klasaritið sýnir þá lagskiptingu sem teymið telur að verkefnið þurfi. Controllerinn TicTacToeController talar við service klasann sem framkvæmir þær aðgerðir að setja tákn á réttan stað í TicTacToe klasanum og lætur viðmótið vita hvort það hafi tekist eður ei.
-![Mynd Fannst Ekki](https://github.com/A-lidid/TicTacToe/docs/images/class_diagram.png "Klasarit")
+![Mynd Fannst Ekki](https://github.com/A-lidid/TicTacToe/blob/master/docs/images/class_diagram.png "Klasarit")
 ## Reglur
 ### Almennar kóða reglur
 1. Allur kóði og athugasemdir skulu vera skrifuð á ensku.
