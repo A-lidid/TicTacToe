@@ -28,7 +28,7 @@ Mikilvægt er að vera með nýjustu útgáfu af Java Development Kit. Hana er a
 Við leikinn er notast við Gradle þegar verið er að builda. Til þess að setja það upp þarf að fara eftir eftir þeim [skrefum](https://gradle.org/install/), en þau eru mismunandi eftir því hvernig hugbúnað tölvan notar. Athuga að hér þarf að hafa sett upp java.
 
 #### Travis
-Meðlimir þurfa að vera með aðgang inn á Travis. Til þess að gerast meðlimur er farið inn á [Travis](https://travis-ci.org/). Þar geta meðlimir skráð sig inn með github. Travis framkvæmir einingaprófanir sem deployar það á prófunarvefhýsingu Horoku, ef að það virkar þá deployar það inn á vefhýsingu Horoku. Bæði ef að upp kom villa, eða ef þetta keyrði villulaust verður sent tilkynning inn á [Slack](#Slack)
+Meðlimir þurfa að vera með aðgang inn á Travis. Til þess að gerast meðlimur er farið inn á [Travis](https://travis-ci.org/). Þar geta meðlimir skráð sig inn með github. Travis framkvæmir einingaprófanir sem deployar vefinn á prófunarvefhýsingu Heroku og framkvæmir end-to-end prófanir á þann vef, ef að það virkar þá deployar vefinn inn á vefhýsingu Heroku sem ætlaður er notendum. Bæði ef að upp kom villa, eða ef þetta keyrði villulaust verður sent tilkynning inn á [Slack](#Slack)
 
 #### Heroku
 Heroku sér um að deploya og hýsa appið. Til að fá aðgang þarf að fara inn á [Heroku](https://dashboard.heroku.com/apps) og búa sér til aðgang. Meðlimir þurfa einnig að setja upp [Heroku toolbelt](https://devcenter.heroku.com/articles/heroku-cli) og skrá sig inn með aðgangi Heroku.  
