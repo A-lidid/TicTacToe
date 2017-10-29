@@ -7,7 +7,7 @@ Tic Tac Toe er einfaldur leikur þar sem tveir leikmenn skiptast á við að set
 Teymið ætlar að útfæra TicTacToe sem vef sem verður hýstur hjá [Heroku](https://www.heroku.com) sem býður upp á ókeypis vefhýsingu fyrir smáforrit skrifuðum í hinum ýmsu málum. Leikurinn sjálfur verður skrifaður í [Java](https://www.java.com/en/). Teymið mun styðjast við [Gradle Build Tool](https://gradle.org/) til þess að sjá um viðhald dependency-a, og [Travis](https://travis-ci.org/) fyrir samfellda samþættingu og styðjast við [Selenium](http://www.seleniumhq.org/) til þess að keyra prófanir á vefumhverfi.
 ## Rit
 ### Klasarit
-Klasaritið sýnir þá lagskiptingu sem teymið telur að verkefnið þurfi. Controllerinn TicTacToeController talar við service klasann sem framkvæmir þær aðgerðir að setja tákn á réttan stað í TicTacToe klasanum og lætur viðmótið vita hvort það hafi tekist eður ei.
+Klasaritið sýnir þá lagskiptingu sem teymið telur að verkefnið þurfi. Controllerinn TicTacToeController talar við service klasann sem framkvæmir þær aðgerðir að setja tákn á réttan stað í TicTacToe klasanum og lætur viðmótið vita hvort það hafi tekist eða ekki.
 ![Mynd Fannst Ekki](https://github.com/A-lidid/TicTacToe/blob/master/docs/images/class_diagram.png "Klasarit")
 ## Reglur
 ### Almennar kóða reglur
