@@ -43,7 +43,7 @@ Velocity talar beint við spark og er hægt að kynna sér það [nánar](https:
 Þróunarteymi þarf að vera kunnugt um hvernig java documentation style virkar. Ef að meðlimir þurfa að kynna sér það nánar er hægt að gera [það](http://www.oracle.com/technetwork/articles/java/index-137868.html).
 
 ### Selenium
-Til þess að setja upp Selenium prófanir þarf að setja upp Webdriver, fyrir þetta app var notað [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/). Til þess að gefa skelini þarf að fara eftir þessum [leiðbeiningum](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
+Til þess að setja upp Selenium prófanir þarf að setja upp Webdriver, fyrir þetta app var notað [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/). Til þess að gefa skelini aðgang að Chromedriver þarf að fara eftir þessum [leiðbeiningum](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
 
 ### Slack
 Meðlimir fá sent boð um aðgang að Slack sem sér um að tilkynna hvort að build hafi virkað og deployast að fullu, en einnig ef eitthvað fór úrskeiðis.
