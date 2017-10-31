@@ -10,7 +10,7 @@ public class TicTacToeTest{
 	@Test
 	public void returnGameBoard() {
 		game.initializeGameboard();
-		assertEquals("test", game.toString());
+		assertEquals("012\n345\n678\n", game.toString());
 	}
 
 	@Test
